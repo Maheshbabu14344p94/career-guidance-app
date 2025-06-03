@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Location Selection</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      font-size: 18px;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="radio"] {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Preferred Study Location</h2>
+    <form id="locationForm">
+      <label><input type="radio" name="location" value="India" required> India</label>
+      <label><input type="radio" name="location" value="Abroad"> Abroad</label>
+      <button type="submit">Next</button>
+    </form>
+  </div>
+
+  <script>
+  document.getElementById("locationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const location = document.querySelector('input[name="location"]:checked').value;
+    localStorage.setItem('preferredLocation', location); // Save location
+    window.location.href = "admin-college-list.html"; // Go to next page
+  });
+</script>
+</body>
+</html>

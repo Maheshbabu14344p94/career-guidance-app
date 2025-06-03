@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aptitude Test</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://babafaridgroup.edu.in/assets/img/bfgi/free-career-guidance.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: fadeIn 0.6s ease;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      color: #2c3e50;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    input[type="number"]:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    button {
+      margin-top: 25px;
+      background-color: #3498db;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        margin: 30px 20px;
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Aptitude Test</h2>
+    <form id="aptitudeForm">
+      <label>Q1: What is 2 + 2?</label>
+      <input type="number" required>
+
+      <label>Q2: What comes next in the series: 2, 4, 6, ?</label>
+      <input type="number" required>
+
+      <label>Q3: What is the square of 5?</label>
+      <input type="number" required>
+
+      <label>Q4: What is 15 divided by 3?</label>
+      <input type="number" required>
+
+      <label>Q5: If a = 3 and b = 4, what is a² + b²?</label>
+      <input type="number" required>
+
+      <label>Q6: What is the next number in the pattern: 1, 1, 2, 3, 5, ?</label>
+      <input type="number" required>
+
+      <label>Q7: What is 10% of 250?</label>
+      <input type="number" required>
+
+      <label>Q8: What is the cube root of 27?</label>
+      <input type="number" required>
+
+      <button type="submit">Submit Test</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("aptitudeForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Correct answers in order
+      const correctAnswers = [4, 8, 25, 5, 25, 8, 25, 3];
+
+      // Get user inputs
+      const inputs = document.querySelectorAll("#aptitudeForm input");
+      let score = 0;
+
+      inputs.forEach((input, index) => {
+        if (parseInt(input.value) === correctAnswers[index]) {
+          score++;
+        }
+      });
+
+      const percentage = Math.round((score / correctAnswers.length) * 100);
+
+      // Redirect with score in URL
+      window.location.href = `test-completion.html?score=${percentage}`;
+    });
+  </script>
+</body>
+</html>

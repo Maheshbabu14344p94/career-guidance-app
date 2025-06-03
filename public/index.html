@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Guidance App</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #34495e;
+      color: #fff;
+      padding: 15px 30px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .app-name {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #1abc9c;
+    }
+
+    /* Main Container */
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container h2 {
+      font-size: 30px;
+      margin-bottom: 40px;
+      color: #2c3e50;
+    }
+
+    .dashboard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      color: #2c3e50;
+    }
+
+    .card p {
+      font-size: 16px;
+      margin: 15px 0 25px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #3498db;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #2980b9;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #34495e;
+      color: #fff;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container h2 {
+        font-size: 24px;
+      }
+
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo-section">
+      <img src="assets/logo.png" alt="Logo" class="logo">
+      <span class="app-name">Career Guidance</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="college-list.html">Colleges</a></li>
+      <li><a href="student-details.html">student-details</a></li>
+      <li><a href="student-login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+    <h2>Welcome to the Career Guidance Dashboard</h2>
+    <div class="dashboard">
+      <div class="card">
+        <h3>🎓 Explore Colleges</h3>
+        <p>Search and filter colleges based on location, course, and eligibility.</p>
+        <a href="college-list.html" class="button">View Colleges</a>
+      </div>
+      <div class="card">
+        <h3>🧠 Take Aptitude Test</h3>
+        <p>Find your strengths and get personalized career suggestions.</p>
+        <a href="aptitude-test.html" class="button">Start Test</a>
+      </div>
+      <div class="card">
+        <h3>📊 View Your Score</h3>
+        <p>Track your test history and improve over time.</p>
+        <a href="test-completion.html" class="button">My Scores</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Career Guidance App. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - College List</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background: url('https://babafaridgroup.edu.in/assets/img/bfgi/free-career-guidance.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    table th, table td {
+      padding: 14px 18px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #3498db;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+      background-color: #ecf0f1;
+      transition: background-color 0.3s ease;
+    }
+
+    button {
+      background-color: #2ecc71;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Optional: Add a logo above heading */
+    .logo {
+      max-width: 120px;
+      margin-bottom: 15px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      table th, table td {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Optional logo -->
+    <!-- <img src="assets/logo.png" alt="Logo" class="logo" /> -->
+    <h2>Admin Colleges List</h2>
+    <table id="collegeTable">
+      <thead>
+        <tr>
+          <th>College Name</th>
+          <th>Location</th>
+          <th>Courses Offered</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be dynamically generated here -->
+      </tbody>
+    </table>
+    <button onclick="window.location.href='admin-dashboard.html'">Back to Dashboard</button>
+  </div>
+
+  <script>
+  const colleges = [
+    { name: 'National Institute of Technology', location: 'Delhi', courses: ['Engineering', 'Science'], region: 'India' },
+    { name: 'Harvard University', location: 'USA', courses: ['Business', 'Law', 'Medicine'], region: 'Abroad' },
+    { name: 'Indian Institute of Technology', location: 'Mumbai', courses: ['Engineering', 'Technology'], region: 'India' },
+    { name: 'Stanford University', location: 'USA', courses: ['Computer Science', 'AI', 'Engineering'], region: 'Abroad' },
+    { name: 'Oxford University', location: 'UK', courses: ['Law', 'Literature', 'Philosophy'], region: 'Abroad' },
+    { name: 'University of Toronto', location: 'Canada', courses: ['Business', 'Engineering', 'IT'], region: 'Abroad' },
+    { name: 'Massachusetts Institute of Technology', location: 'USA', courses: ['Engineering', 'Math', 'Physics'], region: 'Abroad' },
+    { name: 'Delhi University', location: 'Delhi', courses: ['Arts', 'Science', 'Commerce'], region: 'India' },
+    { name: 'University of Melbourne', location: 'Australia', courses: ['Medicine', 'Law', 'Science'], region: 'Abroad' },
+    { name: 'Amity University', location: 'Noida', courses: ['Engineering', 'Management', 'Law'], region: 'India' },
+    { name: 'Anna University', location: 'Chennai', courses: ['Engineering', 'Technology'], region: 'India' },
+    { name: 'Banaras Hindu University', location: 'Varanasi', courses: ['Science', 'Law', 'Philosophy'], region: 'India' },
+    { name: 'BITS Pilani', location: 'Pilani', courses: ['Engineering', 'Science'], region: 'India' },
+    { name: 'Jawaharlal Nehru University', location: 'Delhi', courses: ['Political Science', 'Languages'], region: 'India' },
+    { name: 'Vellore Institute of Technology', location: 'Vellore', courses: ['Engineering', 'Technology'], region: 'India' },
+    { name: 'Christ University', location: 'Bangalore', courses: ['Commerce', 'Management', 'Humanities'], region: 'India' },
+    { name: 'Symbiosis International University', location: 'Pune', courses: ['Management', 'Law'], region: 'India' },
+    { name: 'SRM Institute of Science and Technology', location: 'Chennai', courses: ['Engineering', 'Medicine'], region: 'India' },
+    { name: 'Shiv Nadar University', location: 'Uttar Pradesh', courses: ['Science', 'Engineering', 'Arts'], region: 'India' },
+    { name: 'Ashoka University', location: 'Haryana', courses: ['Liberal Arts', 'Economics', 'Political Science'], region: 'India' }
+  ];
+
+  // Get user selection
+  const selectedLocation = localStorage.getItem('preferredLocation') || 'India'; // default to India
+
+  const filteredColleges = colleges.filter(college => {
+    return (selectedLocation === 'India' && college.region === 'India') ||
+           (selectedLocation === 'Abroad' && college.region === 'Abroad');
+  });
+
+  const tbody = document.querySelector('#collegeTable tbody');
+  filteredColleges.forEach(college => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${college.name}</td>
+      <td>${college.location}</td>
+      <td>${college.courses.join(', ')}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+</script>
+
+</body>
+</html>

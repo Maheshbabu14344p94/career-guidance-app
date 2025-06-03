@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Complete</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #f2f7ff, #dbeafe);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h2 {
+      color: #1e3a8a;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #374151;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>✅ Test Completed!</h2>
+    <p id="result">Calculating your score...</p>
+    <a href="index.html" class="button">Return to Home</a>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const score = parseInt(urlParams.get('score'));
+
+    let message = "";
+
+    if (!isNaN(score)) {
+      if (score === 100) {
+        message = `🎉 Perfect! You scored ${score}%. You're a genius!`;
+      } else if (score >= 80) {
+        message = `👏 Great job! You scored ${score}%. You're well prepared.`;
+      } else if (score >= 60) {
+        message = `👍 Good effort! You scored ${score}%. Keep practicing.`;
+      } else {
+        message = `💡 You scored ${score}%. Don’t worry, keep learning and try again!`;
+      }
+    } else {
+      message = "⚠️ Score not available.";
+    }
+
+    document.getElementById("result").textContent = message;
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: url('https://babafaridgroup.edu.in/assets/img/bfgi/free-career-guidance.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .button:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    .logout {
+      background-color: #e74c3c;
+    }
+
+    .logout:hover {
+      background-color: #c0392b;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Optional: Add a logo */
+    .logo {
+      max-width: 100px;
+      margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        margin: 30px 15px;
+        padding: 20px;
+      }
+
+      .button {
+        font-size: 16px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Optional logo -->
+    <!-- <img src="assets/logo.png" alt="Logo" class="logo" /> -->
+    <h2>Welcome, Admin</h2>
+    <div class="dashboard">
+      <a href="college-registration.html" class="button">Register College</a>
+      <a href="admin-login.html" class="button">login College</a>
+      <a href="admin-college-list.html" class="button">View Colleges</a>
+      <a href="index.html" class="button logout">Logout</a>
+    </div>
+  </div>
+</body>
+</html>
